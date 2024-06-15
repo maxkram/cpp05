@@ -28,20 +28,20 @@ bool AForm::getSigned() const {
 	return (this->_isSigned);
 }
 
-int AForm::getReqToSign() const {
+int AForm::getRequestToSign() const {
 	return(this->_reqToSign);
 }
 
-int AForm::getReqToExec() const {
+int AForm::getRequestToExec() const {
 	return (this->_reqToExec);
 }
 
 void AForm::beSigned(Bureaucrat& bur) {
 	if (this->_isSigned) {
-		std::cout << "Form is already signed!" << std::endl;
+		std::cout << "The form is signed already!" << "\n";
 		return;
 	}
-	if (bur.getGrade() <= this->getReqToSign()) {
+	if (bur.getGrade() <= this->getRequestToSign()) {
 		this->_isSigned = true;
 		bur.signForm(*this);
 	}
@@ -52,28 +52,23 @@ void AForm::beSigned(Bureaucrat& bur) {
 }
 
 const char *AForm::GradeTooHighException::what() const throw() {
-	return ("Form exception: grade too high.\n");
+	return ("Form exception: too much of grade\n");
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
-	return ("Form exception: grade too low.\n");
+	return ("Form exception: not enough of grade\n");
 }
 
 const char *AForm::FormNotSignedException::what() const throw() {
-	return ("Form exception: form is not signed.");
+	return ("Form exception: not signed.");
 }
 
 const char *AForm::BureaucratGradeTooLowException::what() const throw() {
-	return ("Form exception: Bureaucrat grade is too low.");
+	return ("Form exception: not enough of grade");
 }
 
-/*
-	This function allows me to do the pre-execute verification for every form without
-	implemention in every child class.
-*/
-
 void AForm::execute(const Bureaucrat& executor) const {
-	if (executor.getGrade() > this->getReqToExec())
+	if (executor.getGrade() > this->getRequestToExec())
 		throw AForm::BureaucratGradeTooLowException();
 	if (!this->getSigned())
 		throw AForm::FormNotSignedException();
@@ -81,10 +76,7 @@ void AForm::execute(const Bureaucrat& executor) const {
 }
 
 std::ostream& operator<<(std::ostream& os, AForm& src) {
-	os << "Form " << src.getName() << ", requires grade " << src.getReqToSign() << " to be signed and grade " << src.getReqToExec() << " to be executed. ";
-	if (src.getSigned())
-		os << "This form is currently signed." << std::endl;
-	else
-		os << "This form is currently NOT signed." << std::endl;
+	os << "Form " << src.getName() << ", requires grade " << src.getRequestToSign() << " to be signed and grade " << src.getRequestToExec() << " to be executed. ";
+	os << (src.getSigned() ? "Signed." : "NOT signed.") << "\n";
 	return (os);
 }

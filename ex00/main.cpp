@@ -2,11 +2,6 @@
 
 int main(void)
 {
-    const std::string COLOR_BLUE = "\033[1;34m";
-    const std::string COLOR_RED = "\033[1;31m";
-    const std::string COLOR_GREEN = "\033[1;32m";
-    const std::string COLOR_BACK = "\033[0m";
-    
     Bureaucrat test;
     Bureaucrat Trudeau("Trudeau", 150);
     Bureaucrat Legault(Trudeau);
@@ -53,7 +48,7 @@ int main(void)
 	std::cout << "\n";
 
 	try {
-        Bureaucrat Wrong2("wrong2", 0);
+        Bureaucrat BigMistake("BigMistake", 0);
     }
     catch (std::exception& e) {
         std::cerr << e.what() << "\n";
@@ -70,16 +65,14 @@ int main(void)
         std::cerr << e.what() << "\n";
     }
 	
-	std::cout << "\n";
-	std::cout << "\n";
-	std::cout << "test increments" << "\n";
-	std::cout << "\n";
-	std::cout << "\n";
+	std::cout << "\n\n";
+	std::cout << "increment test" << "\n";
+	std::cout << "\n\n";
 
-	Bureaucrat b1("One", 1);
-	Bureaucrat b2("Two", 150);
-	Bureaucrat b3("Three", 5);
-	Bureaucrat b4("Four", 125);
+	Bureaucrat b1("1ne", 1);
+	Bureaucrat b2("2wo", 150);
+	Bureaucrat b3("3hre", 5);
+	Bureaucrat b4("4our", 125);
 
 	std::cout << b1 << "\n";
 	std::cout << b2 << "\n";

@@ -8,56 +8,56 @@ int main(void)
 	Form f2("f2", 100, 100);
 	Form copy(f1);
 
-	std::cout << form << std::endl;
-	std::cout << f1 << std::endl;
-	std::cout << f2 << std::endl;
-	std::cout << copy << std::endl;
-	std::cout << std::endl;
+	std::cout << form << "\n";
+	std::cout << f1 << "\n";
+	std::cout << f2 << "\n";
+	std::cout << copy << "\n";
+	std::cout << "\n";
 
-	std::cout << form << std::endl;
+	std::cout << form << "\n";
 	form = f1;
-	std::cout << std::endl;
-	std::cout << form << std::endl;
-	std::cout << f1 << std::endl;
+	std::cout << "\n";
+	std::cout << form << "\n";
+	std::cout << f1 << "\n";
 
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << "Testing exceptions" << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-
-	try {
-        Form Wrong("wrong", 300, 5);
-    }
-    catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "Testing exceptions" << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 	try {
-        Form Wrong2("wrong2", 142, -5);
+        Form BigMistake1("BigMistake1", 200, 25);
     }
     catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << "\n";
     }
 
 	try {
-        Form Wrong3("wrong3", -6, 587);
+        Form BigMistake2("BigMistake2", 42, -15);
     }
     catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << "\n";
     }
 
-	std::cout << std::endl;
-	std::cout << std::endl;
+	try {
+        Form BigMistake3("BigMistake3", -3, 243);
+    }
+    catch (std::exception& e) {
+        std::cerr << e.what() << "\n";
+    }
+
+	std::cout << "\n";
+	std::cout << "\n";
 
 	Bureaucrat bur1("bur1", 150);
 	Bureaucrat bur2("bur2", 1);
-	Bureaucrat bur3("bur3", 75);
+	Bureaucrat bur3("bur3", 42);
 
 	Form f3("f3", 100, 100);
 	Form f32(f3);
 	Form f33(f3);
-	Form f4("f4", 75, 50);
+	Form f4("f4", 42, 50);
 	Form f42(f4);
 	Form f43(f4);
 
@@ -67,10 +67,10 @@ int main(void)
 		f33.beSigned(bur1);
 	}
 	catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << "\n";
 	}
 
-	std::cout << std::endl;
+	std::cout << "\n";
 	
 	try {
 		f4.beSigned(bur2);
@@ -78,11 +78,11 @@ int main(void)
 		f43.beSigned(bur1);
 	}
 	catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << "\n";
 	}
 
-	std::cout << std::endl;
-	std::cout << std::endl;
+	std::cout << "\n";
+	std::cout << "\n";
 
 	Form f5("f5", 100, 100);
 	Form f52(f5);
@@ -90,30 +90,30 @@ int main(void)
 
 	try {
 		bur2.signForm(f5);
-		std::cout << f5 << std::endl;
+		std::cout << f5 << "\n";
 		bur3.signForm(f52);
-		std::cout << f52 << std::endl;
+		std::cout << f52 << "\n";
 		bur1.signForm(f53);
 	}
 	catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << "\n";
 	}
 
-	std::cout << std::endl;
+	std::cout << "\n";
 
 	Form f6("f6", 100, 100);
-	Form f62(f6);
-	Form f63(f6);
+	Form f44(f6);
+	Form f45(f6);
 
 	try {
 		bur2.signForm(f6);
-		std::cout << f6 << std::endl;
-		bur3.signForm(f62);
-		std::cout << f62 << std::endl;
-		bur1.signForm(f63);
+		std::cout << f6 << "\n";
+		bur3.signForm(f44);
+		std::cout << f44 << "\n";
+		bur1.signForm(f45);
 	}
 	catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << "\n";
 	}
 
 }

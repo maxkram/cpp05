@@ -29,20 +29,20 @@ bool Form::getSigned() {
     return (this->_isSigned);
 }
 
-int Form::getReqToSign() {
+int Form::getRequestToSign() {
     return(this->_reqToSign);
 }
 
-int Form::getReqToExec() {
+int Form::getRequestToExec() {
     return (this->_reqToExec);
 }
 
 void Form::beSigned(Bureaucrat& bur) {
     if (this->_isSigned) {
-        std::cout << "Form is already signed!" << std::endl;
+        std::cout << "Already signed!" << "\n";
         return;
     }
-    if (bur.getGrade() <= this->getReqToSign()) {
+    if (bur.getGrade() <= this->getRequestToSign()) {
         this->_isSigned = true;
         bur.signForm(*this);
     }
@@ -53,18 +53,18 @@ void Form::beSigned(Bureaucrat& bur) {
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
-	return ("Form exception: grade too high.\n");
+	return ("Form exception: too much of grad.\n");
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-	return ("Form exception: grade too low.\n");
+	return ("Form exception: not enought of grade.\n");
 }
 
 std::ostream& operator<<(std::ostream& os, Form& src) {
-    os << "Form " << src.getName() << ", requires grade " << src.getReqToSign() << " to be signed and grade " << src.getReqToExec() << " to be executed. ";
+    os << "Form " << src.getName() << ", needs the grade " << src.getRequestToSign() << " to be signed and the grade " << src.getRequestToExec() << " to be executed. ";
     if (src.getSigned())
-        os << "This form is currently signed." << std::endl;
+        os << "The form is signed." << "\n";
     else
-        os << "This form is currently NOT signed." << std::endl;
+        os << "The NOT signed form." << "\n";
     return (os);
 }

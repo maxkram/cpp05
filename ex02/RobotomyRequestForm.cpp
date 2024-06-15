@@ -16,16 +16,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 }
 
 void RobotomyRequestForm::specificExecute(void) const {
-
-	// dont forget to seed the pseudo random numbers
-	int randNum = std::rand();
-
-	std::cout << "*DRILLING NOISES*" << std::endl;
-	if (randNum % 2 == 0) {
-		std::cout << this->_target << " has been robotomized!" << std::endl;
-	}
-	else
-	{
-		std::cout << "Robotomy of " << this->_target << " failed!" << std::endl;
-	}
+    int randNum = std::rand();
+    std::cout << "DRILLLLLLLLLL...." << "\n";
+    std::cout << (randNum % 2 == 0 ? this->_target + " Robotomized!" : "Robotomy of " + this->_target + " failed!") << "\n";
 }

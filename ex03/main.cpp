@@ -12,40 +12,40 @@ int main(void) {
     
     Intern someRandomIntern;
     
-    AForm* scf;
+    AForm* form1;
     
     try {
-        scf = someRandomIntern.makeForm("shrubbery creation", "Richard");
+        form1 = someRandomIntern.makeForm("shrubbery creation", "Anna");
     }
     catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << "\n";
     }
 
-    std::cout << *scf << std::endl;
+    std::cout << *form1 << "\n";
 
-    std::cout << std::endl;
+    std::cout << "\n";
 
-    AForm* rrf;
+    AForm* form2;
     
     try {
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        form2 = someRandomIntern.makeForm("robotomy request", "Jane");
     }
     catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << "\n";
     }
 
-    std::cout << *rrf << std::endl;
+    std::cout << *form2 << "\n";
 
-    std::cout << std::endl;
+    std::cout << "\n";
     
-    AForm* ppf;
+    AForm* form3;
     
     try {
-        ppf = someRandomIntern.makeForm("presidential pardon", "Hector");
+        form3 = someRandomIntern.makeForm("presidential pardon", "Megan");
     }
     catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << "\n";
     }
 
-    std::cout << *ppf << std::endl;
+    std::cout << *form3 << "\n";
 }

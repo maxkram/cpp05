@@ -21,8 +21,8 @@ class Form {
 
         std::string getName();
         bool getSigned();
-        int getReqToSign();
-        int getReqToExec();
+        int getRequestToSign();
+        int getRequestToExec();
 
         void beSigned(Bureaucrat& bur);
 

@@ -1,7 +1,5 @@
 #include "PresidentialPardonForm.hpp"
 
-// Required grades: sign 25, exec 5
-
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("Default") {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
@@ -17,5 +15,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 void PresidentialPardonForm::specificExecute(void) const {
-	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << "\n";
 }

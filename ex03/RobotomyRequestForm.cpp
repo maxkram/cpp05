@@ -1,9 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 
-
-// Required grades: sign 72, exec 45
-
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("Default") {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
@@ -18,22 +15,15 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return (*this);
 }
 
-/*
-	Should only work 50% of the time so lets get a random number and if it is divisible by 2
-	the robotomy will be successful otherwise it will fail.
-*/
-
 void RobotomyRequestForm::specificExecute(void) const {
-
-	// dont forget to seed the pseudo random numbers
 	int randNum = std::rand();
 
-	std::cout << "*DRILLING NOISES*" << std::endl;
+	std::cout << "*DRILLING NOISES*" << "\n";
 	if (randNum % 2 == 0) {
-		std::cout << this->_target << " has been robotomized!" << std::endl;
+		std::cout << this->_target << " has been robotomized!" << "\n";
 	}
 	else
 	{
-		std::cout << "Robotomy of " << this->_target << " failed!" << std::endl;
+		std::cout << "Robotomy of " << this->_target << " failed!" << "\n";
 	}
 }

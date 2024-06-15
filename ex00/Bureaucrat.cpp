@@ -2,11 +2,11 @@
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-	this->setGrade(grade);
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
+    this->setGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& original) : _name(original._name), _grade(original._grade) {}   
+Bureaucrat::Bureaucrat(const Bureaucrat& original) : _name(original._name), _grade(original._grade) {}
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -45,14 +45,14 @@ void Bureaucrat::setGrade(int grade) {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("Bureaucrat exception: grade too high.\n");
+	return ("Bureaucrat exception: too much of the grade.\n");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("Bureaucrat exception: grade too low.\n");
+	return ("Bureaucrat exception: the grade is below the level.\n");
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src) {
-	os << src.getName()	<< ", bureaucrat grade " << src.getGrade() << "." << std::endl;
+	os << src.getName()	<< ", bureaucrat grade " << src.getGrade() << "." << "\n";
 	return (os);
 }

@@ -21,8 +21,8 @@ class AForm {
 
         std::string getName() const;
         bool getSigned() const;
-        int getReqToSign() const;
-        int getReqToExec() const;
+        int getRequestToSign() const;
+        int getRequestToExec() const;
 
         void beSigned(Bureaucrat& bur);
 

@@ -2,8 +2,8 @@
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-	this->setGrade(grade);
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
+    this->setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& original) : _name(original._name), _grade(original._grade) {}   
@@ -46,26 +46,26 @@ void Bureaucrat::setGrade(int grade) {
 
 void Bureaucrat::signForm(Form& form) {
 	if (form.getSigned())
-		std::cout << this->getName() << " signed " << form.getName() << "." << std::endl;
+		std::cout << this->getName() << " signed " << form.getName() << "." << "\n";
 	else {
-		if (this->_grade <= form.getReqToSign())
+		if (this->_grade <= form.getRequestToSign())
 			form.beSigned(*this);
 		else {
-			std::cout << this->getName() << " couldn't sign " << form.getName() << " because is grade is too low." << std::endl;
+			std::cout << this->getName() << " no sign " << form.getName() << " not enough grade." << "\n";
 			throw Form::GradeTooLowException();
 		}
 	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("Bureaucrat exception: grade too high.\n");
+	return ("Bureaucrat exception: too much of the grade.\n");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("Bureaucrat exception: grade too low.\n");
+	return ("Bureaucrat exception: the grade is below the level.\n");
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src) {
-	os << src.getName()	<< ", bureaucrat grade " << src.getGrade() << "." << std::endl;
+	os << src.getName()	<< ", bureaucrat grade " << src.getGrade() << "." << "\n";
 	return (os);
 }

@@ -14,17 +14,17 @@ Intern &Intern::operator=(const Intern& original) {
 }
 
 AForm *Intern::makeShrubberyCreation(const std::string& target) {
-    std::cout << "Intern creates shrubbery creation form." << std::endl;
+    std::cout << "Intern makes shrubbery creation form." << "\n";
     return (new ShrubberyCreationForm(target));
 }
 
 AForm *Intern::makeRobotomyRequest(const std::string& target) {
-    std::cout << "Intern creates robotomy request form." << std::endl;
+    std::cout << "Intern makes robotomy request form." << "\n";
     return (new RobotomyRequestForm(target));
 }
 
 AForm *Intern::makePresidentialPardon(const std::string& target) {
-    std::cout << "Intern creates presidential pardon form." << std::endl;
+    std::cout << "Intern makes presidential pardon form." << "\n";
     return (new PresidentialPardonForm(target));
 }
 
@@ -35,7 +35,7 @@ AForm *Intern::makeForm(const std::string& name, const std::string& target) {
         "presidential pardon"
     };
 
-    AForm *(Intern::*constructors[3])(const std::string&) = {
+    AForm *(Intern::*conswhattors[3])(const std::string&) = {
         &Intern::makeShrubberyCreation,
         &Intern::makeRobotomyRequest,
         &Intern::makePresidentialPardon
@@ -43,12 +43,12 @@ AForm *Intern::makeForm(const std::string& name, const std::string& target) {
 
     for (int i = 0; i < 4; i++) {
         if (forms[i] == name)
-            return ((this->*constructors[i])(target));
+            return ((this->*conswhattors[i])(target));
     }
-    std::cout << "Intern couldn't find form!" << std::endl;
+    std::cout << "No Form for Intern" << "\n";
     throw Intern::FormNotFoundException();
 }
 
 const char *Intern::FormNotFoundException::what() const throw() {
-    return ("Intern exception: Form not found.");
+    return ("Intern exception: No Form was found.");
 }
